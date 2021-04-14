@@ -16,13 +16,18 @@ class Airplane {
     }
     takeOff() {
       this.isFlying = true;
+      return "The plane is flying!";
     }
     land() {
       this.isFlying = false;
+      return "The plane has landed.";
     }
   }
-  
-  /*
+const plane1 = new Airplane("bigplane");
+console.log(plane1.land());
+console.log(plane1.takeOff());
+
+/*
   // 👇 COMPLETE YOUR WORK BELOW 👇
   // 👇 COMPLETE YOUR WORK BELOW 👇
   // 👇 COMPLETE YOUR WORK BELOW 👇
