@@ -23,9 +23,9 @@ class Airplane {
       return "The plane has landed.";
     }
   }
-const plane1 = new Airplane("bigplane");
-console.log(plane1.land());
-console.log(plane1.takeOff());
+  const plane1 = new Airplane("bigplane");
+  console.log(plane1.land());
+  console.log(plane1.takeOff());
 
 /*
   // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -47,8 +47,34 @@ console.log(plane1.takeOff());
   */
   
  class Person {
-    
-  }
+   constructor(name, age) {
+     this.name = name;
+     this.age = age;
+     this.stomach = [];
+   }
+     eat(food) {
+       if (this.stomach.length<10) {
+         return this.stomach.push(food);
+       } 
+       else {
+         return this.stomach;
+       } 
+     }
+     poop(){
+        this.stomach.length = 0;
+        return "I've emptied my bowels. My stomach is empty now."
+     }
+     toString() {
+      return `${this.name},${this.age}`
+    }
+   }
+  
+  const humanPerson = new Person("Steve", 20);
+  console.log(humanPerson.poop());
+      /* feeding - i gotta find a more efficient way to do this */
+      humanPerson.eat(['string', 'string', 'string', 'string', 'string']); /*i cant fully figure out how to push multiple objects without the double brackets */
+  console.log(humanPerson.stomach)
+  console.log(humanPerson.toString());  
   
   /*
     TASK 2
@@ -65,7 +91,29 @@ console.log(plane1.takeOff());
   */
   
  class Car {
-    
+    constructor(model, milesPerGallon) {
+      this.model = model;
+      this.milesPerGallon = milesPerGallon;
+      this.tank = 0;
+      this.odometer = 0;
+    }
+    fill(gallons){
+      this.tank = this.tank + gallons
+      return this.tank;
+    }
+    drive(distance){
+      const maxDistance = this.tank * this.milesPerGallon;
+      this.tank = this.tank - (distance / this.milesPerGallon);
+      if (this.tank <= 0) {
+        this.odometer = this.odometer + maxDistance;
+        this.tank = 0;
+        return `I ran out of fuel at ${this.odometer} miles on a ${distance} mile trip!`
+      } 
+      else {
+        this.odometer = this.odometer + distance;
+        return `My odometer reads ${this.odometer} miles, and there is ${this.tank} gallons of gas left in me!`
+      }
+    }
   }
   
   /*
@@ -81,7 +129,11 @@ console.log(plane1.takeOff());
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
-    
+    constructor(name, age, location) {
+      this.name = name;
+      this.age = age;
+      this.location = location;
+    }
   }
   
   /*
